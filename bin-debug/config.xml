@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <config>
+  	<REQUST_PATH value=""  />
+  	<RESOURCE_PATH value="Resource/" />
+  	<XML_PATH value="Resource/XML/" />
+  	<SWF_PATH value="Resource/SWF/" />
+  
+  </config>
+</root> 
+ 

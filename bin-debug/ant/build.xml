@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<project name="tink_build" default="main">
+	<property name="copy_path" location="../../../"  />
+	<property name="target_path" location="G:\AS3\Tink" />
+	<target name="main">
+		<echo>preparing</echo>
+		<echo>copy Loader</echo>
+			<antcall target="copy_Loader" />
+		<echo>copy LoaderTest</echo>
+			<antcall target="copy_LoaderTest" />
+		<echo>finish</echo>
+	</target>
+	<target name="copy_Loader">
+		<copy todir="${target_path}/Loader">
+	           <fileset dir="${copy_path}/Loader"/>
+		 </copy>
+	</target>
+	<target name="copy_LoaderTest">
+		<copy todir="${target_path}/LoaderTest">
+	           <fileset dir="${copy_path}/LoaderTest"/>
+		 </copy>
+	</target>
+</project>
