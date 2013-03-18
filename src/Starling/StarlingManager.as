@@ -19,7 +19,7 @@ package Starling
 			super();
 		}
 		
-		public function setup($stage:Stage):void
+		public function setup($stage:Stage,reback:Function):void
 		{
 			if(_stage)
 			{
@@ -33,6 +33,8 @@ package Starling
 			_starling = new Starling(StarlingStage,_stage)
 			_starling.antiAliasing = 1;
 			_starling.start();
+			
+			reback();
 		}
 		
 		public static function get instance():StarlingManager

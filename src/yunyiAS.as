@@ -9,6 +9,8 @@ package
 	
 	import config.ConfigManager;
 	
+	import index.IndexManager;
+	
 	[SWF(frameRate="60", backgroundColor="#ffffff")]
 	public class yunyiAS extends Sprite
 	{
@@ -19,14 +21,12 @@ package
 		
 		private function setup():void
 		{
-			StarlingManager.instance.setup(this.stage);
-			
-			
-			var loader:XMLLoader = LoaderManager.instance.createLoader(createConfigPath(),LoaderType.XML);
-			loader.addEventListener(LoaderEvents.COMPLETE,__complete);
-			loader.addEventListener(LoaderEvents.PROGRESS,__progress);
-			
-			stage.addEventListener(Event.ENTER_FRAME,__enterFrame);
+			StarlingManager.instance.setup(this.stage,login);
+		}
+		
+		private function login():void
+		{
+			IndexManager.instance.setup();
 		}
 		
 		private function __complete(event:LoaderEvents):void
@@ -39,6 +39,7 @@ package
 				ConfigManager.instance.xmlPath = xmllist[0].XML_PATH.@value;
 				ConfigManager.instance.swfPath = xmllist[0].SWF_PATH.@value;
 			}
+			setup();
 		}
 		
 		private function __progress(event:LoaderEvents):void
@@ -54,7 +55,11 @@ package
 		
 		private function __addToStage(event:Event):void
 		{
-			setup();
+			var loader:XMLLoader = LoaderManager.instance.createLoader(createConfigPath(),LoaderType.XML);
+			loader.addEventListener(LoaderEvents.COMPLETE,__complete);
+			loader.addEventListener(LoaderEvents.PROGRESS,__progress);
+			
+			stage.addEventListener(Event.ENTER_FRAME,__enterFrame);
 		}
 		
 		private function createConfigPath():String
