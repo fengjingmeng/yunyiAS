@@ -1,5 +1,7 @@
 package index
 {
+	import index.view.IndexView;
+
 	/**
 	 *主页C  
 	 * @author Demon-Tink
@@ -10,6 +12,9 @@ package index
 		private static var _instance:IndexManager;
 		
 		private var _model:IndexModel;
+		private var _view:IndexView;
+		
+		private var _loadComplete:Boolean;
 		
 		public function IndexManager()
 		{
@@ -18,7 +23,7 @@ package index
 		
 		public function setup():void
 		{
-			
+//			LoaderManager.instance.createLoader(
 		}
 		
 		public function get model():IndexModel
