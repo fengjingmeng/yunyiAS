@@ -1,0 +1,6 @@
+<style name="ddtvipView" version="1.0.1" source="swf/indexview.swf">
+	<components>
+		<component classname="starling.display.Image" stylename="yunyi.index.indexview" x="0" y="0"/>
+	
+	</components>
+</style>

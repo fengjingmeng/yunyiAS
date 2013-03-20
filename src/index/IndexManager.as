@@ -1,6 +1,13 @@
 package index
 {
+	import UIModuleLoader.UIModuleLoaderEvent;
+	import UIModuleLoader.UIModuleLoaderManager;
+	
 	import index.view.IndexView;
+	
+	import tinkLoader.LoaderManager;
+	
+	import tinkResource.UIModuleNames;
 
 	/**
 	 *主页C  
@@ -23,7 +30,32 @@ package index
 		
 		public function setup():void
 		{
-//			LoaderManager.instance.createLoader(
+			if(_loadComplete)
+			{
+				_view = new IndexView();
+				_view.show();
+			}
+			else
+			{
+				UIModuleLoaderManager.instance.addUIModule(UIModuleNames.INDEX_VIEW);
+				UIModuleLoaderManager.instance.model.addEventListener(UIModuleLoaderEvent.COMPLETE,__complete);
+				UIModuleLoaderManager.instance.model.addEventListener(UIModuleLoaderEvent.ERROR,__error);
+			}
+		}
+		
+		private function __complete(event:UIModuleLoaderEvent):void
+		{
+			UIModuleLoaderManager.instance.model.removeEventListener(UIModuleLoaderEvent.COMPLETE,__complete);
+			UIModuleLoaderManager.instance.model.removeEventListener(UIModuleLoaderEvent.ERROR,__error);
+			
+			_loadComplete = true;
+			setup();
+		}
+		
+		private function __error(event:UIModuleLoaderEvent):void
+		{
+			UIModuleLoaderManager.instance.model.removeEventListener(UIModuleLoaderEvent.COMPLETE,__complete);
+			UIModuleLoaderManager.instance.model.removeEventListener(UIModuleLoaderEvent.ERROR,__error);
 		}
 		
 		public function get model():IndexModel
