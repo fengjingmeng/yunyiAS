@@ -15,7 +15,6 @@ package Starling
 		private function setup():void
 		{
 			trace("Starling sucess!");
-			IndexManager.instance.setup();
 		}
 	}
 }
