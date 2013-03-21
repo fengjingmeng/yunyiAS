@@ -1,13 +1,13 @@
 package index
 {
-	import UIModuleLoader.UIModuleLoaderEvent;
-	import UIModuleLoader.UIModuleLoaderManager;
+	import tinkUIModuleLoader.UIModuleLoaderEvent;
+	import tinkUIModuleLoader.UIModuleLoaderManager;
 	
 	import index.view.IndexView;
 	
 	import tinkLoader.LoaderManager;
 	
-	import tinkResource.UIModuleNames;
+	import tinkUIModuleLoader.UIModuleNames;
 
 	/**
 	 *主页C  

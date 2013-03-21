@@ -2,7 +2,7 @@ package
 {
 	import Starling.StarlingManager;
 	
-	import UIModuleLoader.UIModuleLoaderManager;
+	import tinkUIModuleLoader.UIModuleLoaderManager;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;
